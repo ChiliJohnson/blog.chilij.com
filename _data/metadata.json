@@ -1,12 +1,12 @@
 {
   "title": "Your Blog Name",
-  "url": "https://eleven.chilij.com",
+  "url": "https://blog.staging.chilij.com",
   "description": "Vibus Arrivus",
   "feed": {
     "subtitle": "Vibus Arrivus",
     "filename": "feed.xml",
     "path": "/feed/feed.xml",
-    "id": "https://eleven.chilij.com/"
+    "id": "https://blog.staging.chilij.com/"
   },
   "author": {
     "name": "Chili Johnson",
