@@ -1,0 +1,15 @@
+---
+layout: layouts/base.njk
+templateClass: base-logo
+---
+<header id="site-head">
+  <div id="site-head-content" class="inner">
+    <a id="blog-logo" href="{{ '/' | url }}">
+      <img src="{{ '/images/lambda.svg' | url }}" alt="Blog Logo">
+    </a>
+  </div>
+</header>
+
+<main class="content" role="main">
+  {{ content | safe }}
+</main>
