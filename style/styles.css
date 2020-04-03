@@ -157,17 +157,22 @@ blockquote {
   margin: 2em 0;
 }
 
+blockquote p {
+  margin: 0;
+  padding: 0;
+}
+
 pre {
-  font-size: 0.8em;
-  line-height: 1.6em;
-  overflow: auto;
-  background-color: #f7f7f7;
-  border: 1px solid #eeeeee;
+  font-size: 0.8em !important;
+  line-height: 1.6em !important;
+  overflow: auto !important;
+  background-color: #f7f7f7 !important;
+  border: 1px solid #eeeeee !important;
 }
 
 blockquote,
 pre {
-  padding: 1em 1.4em;
+  padding: 1em 1.4em !important;
 }
 
 .post-meta {
@@ -197,4 +202,13 @@ main {
 
 .direct-link:hover {
   opacity: 1;
+}
+
+.post-content img {
+  width: 100%;
+  border-radius: 0.1em;
+}
+
+img + em {
+  color: #999999;
 }
