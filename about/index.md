@@ -4,7 +4,7 @@ title: About Me
 templateClass: post-template
 eleventyNavigation:
   key: About
-  order: 4
+  order: 2
 ---
 
-I am a person that writes stuff.
+It's ya boi
