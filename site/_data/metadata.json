@@ -1,9 +1,10 @@
 {
-  "title": "Your Blog Name",
+  "title": "Chili J",
   "url": "https://blog.staging.chilij.com",
-  "description": "Vibus Arrivus",
+  "description": "Pretty much anything",
+  "strapline": "Pretty much anything",
   "feed": {
-    "subtitle": "Vibus Arrivus",
+    "subtitle": "Pretty much anything",
     "filename": "feed.xml",
     "path": "/feed/feed.xml",
     "id": "https://blog.staging.chilij.com/"

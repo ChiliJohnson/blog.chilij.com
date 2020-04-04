@@ -4,7 +4,43 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 
-    <title>{{ renderData.title or title or metadata.title }}</title>
+    {# <title>{{ renderData.title or title or metadata.title }}</title> #}
+
+   <title>
+        {%- if title -%}
+            {{title}} | {{metadata.title}}
+        {%-else-%}
+            {{metadata.title}} | {{metadata.strapline}}
+        {%- endif -%}
+    </title>
+    <meta name="description" content="{% block description %}{{metadata.description}}{% endblock %}">
+    <meta name="robots" content="index,follow">
+    <meta name="generator" content="Eleventy">
+    <meta name="subject" content="Pretty much anything">
+
+    {%- block seo -%}
+    <!--Twitter Card-->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="{{metadata.baseURL}}{{page.url}}">
+    <meta name="twitter:title" content="{{title}}">
+    <meta name="twitter:description" content="{{ description or metadata.description }}">
+
+    <!--Schema-->
+    <link rel="author" href="{{metadata.baseURL}}">
+    <link rel="publisher" href="{{metadata.baseURL}}">
+    <meta itemprop="name" content="{{title}}">
+    <meta itemprop="description" content="{{ description or metadata.description }}">
+
+    <!-- Facebook OpenGraph -->
+    <meta property="og:url" content="{{metadata.baseURL}}{{page.url}}">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{title}}">
+    <meta property="og:description" content="{{ description or metadata.description }}">
+    <meta property="og:site_name" content="{{metadata.title}}">
+    <meta property="og:locale" content="en_US">
+    <meta property="article:author" content="{{metadata.baseURL}}">
+    {%- endblock -%}
+
     <meta name="HandheldFriendly" content="True"/>
     <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 
