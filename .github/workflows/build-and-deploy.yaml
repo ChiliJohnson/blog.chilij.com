@@ -19,6 +19,9 @@ jobs:
         uses: TartanLlama/actions-eleventy@v1.2
         with:
           install_dependencies: true
+        env:
+          SITE_URL: ${{ secrets.SITE_URL }}
+          EXTERNAL_HOME_URL: ${{ secrets.EXTERNAL_HOME_URL }}
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v2.10.0
