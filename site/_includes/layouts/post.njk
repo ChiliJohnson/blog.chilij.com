@@ -6,7 +6,7 @@ templateClass: post-template
 <article class="post">
 
   <div class="post-meta">
-    <time datetime="2019-01-01">01 Jan 2019</time>
+    <time datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>
   </div>
 
   <h1 class="post-title">
