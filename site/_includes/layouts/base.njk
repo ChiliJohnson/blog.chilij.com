@@ -21,24 +21,24 @@
     {%- block seo -%}
     <!--Twitter Card-->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:url" content="{{metadata.baseURL}}{{page.url}}">
+    <meta name="twitter:url" content="{{metadata.url}}{{page.url}}">
     <meta name="twitter:title" content="{{title}}">
     <meta name="twitter:description" content="{{ description or metadata.description }}">
 
     <!--Schema-->
-    <link rel="author" href="{{metadata.baseURL}}">
-    <link rel="publisher" href="{{metadata.baseURL}}">
+    <link rel="author" href="{{metadata.url}}">
+    <link rel="publisher" href="{{metadata.url}}">
     <meta itemprop="name" content="{{title}}">
     <meta itemprop="description" content="{{ description or metadata.description }}">
 
     <!-- Facebook OpenGraph -->
-    <meta property="og:url" content="{{metadata.baseURL}}{{page.url}}">
+    <meta property="og:url" content="{{metadata.url}}{{page.url}}">
     <meta property="og:type" content="website">
     <meta property="og:title" content="{{title}}">
     <meta property="og:description" content="{{ description or metadata.description }}">
     <meta property="og:site_name" content="{{metadata.title}}">
     <meta property="og:locale" content="en_US">
-    <meta property="article:author" content="{{metadata.baseURL}}">
+    <meta property="article:author" content="{{metadata.url}}">
     {%- endblock -%}
 
     <meta name="HandheldFriendly" content="True"/>
@@ -65,6 +65,9 @@
             <a href="{{ entry.url | url }}">{{ entry.title }}</a>
           </li>
         {%- endfor %}
+          <li class="nav-item">
+            <a href="{{ metadata.externalHomeUrl }}">Home</a>
+          </li>
       </ul>
     </nav>
 
