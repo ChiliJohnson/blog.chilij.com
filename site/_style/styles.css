@@ -185,6 +185,7 @@ pre {
 
 main {
   margin-bottom: 3em;
+  max-width: 100%;
 }
 
 @media (max-width: 42rem) {
