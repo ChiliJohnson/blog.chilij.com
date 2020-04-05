@@ -38,6 +38,7 @@
     <meta property="og:description" content="{{ description or metadata.description }}">
     <meta property="og:site_name" content="{{metadata.title}}">
     <meta property="og:locale" content="en_US">
+    <meta property="og:image" content="{{metadata.url}}{{ogImage or metadata.defaultOgImage}}">
     <meta property="article:author" content="{{metadata.url}}">
     {%- endblock -%}
 

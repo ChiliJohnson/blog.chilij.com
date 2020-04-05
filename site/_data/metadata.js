@@ -14,4 +14,5 @@ module.exports = {
     name: "Chili Johnson",
     email: "ChiliJohnson@chilij.com",
   },
+  defaultOgImage: "/images/og-lambda.png"
 };
