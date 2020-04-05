@@ -90,14 +90,14 @@ When invoked multiple times, this script will swap between using AirPods and ano
 ```shell
 #!/bin/bash -xe
 
-DEVICE_NAME="airpods pro"
+TARGET_DEVICE_NAME="airpods pro"
+DEFAULT_AUDIO_DEVICE="MacBook Pro Speakers"
 
 # Connect via Bluetooth
-device_address=`BluetoothConnector | grep ' - ' | grep -i "$DEVICE_NAME" | cut -d ' ' -f 1`
+device_address=`BluetoothConnector | grep ' - ' | grep -i "$TARGET_DEVICE_NAME" | cut -d ' ' -f 1`
 BluetoothConnector --connect $device_address
 
-default_audio_device="MacBook Pro Speakers"
-target_audio_device=`SwitchAudioSource -a -t output | grep -i "$DEVICE_NAME" | sed 's/ (.*//'`
+target_audio_device=`SwitchAudioSource -a -t output | grep -i "$TARGET_DEVICE_NAME" | sed 's/ (.*//'`
 current_audio_device=`SwitchAudioSource -c`
 
 # Only toggle between devices when the target device is available
@@ -106,7 +106,7 @@ if [ ! -z "$target_audio_device" ]; then
   if [ "$current_audio_device" != "$target_audio_device" ]; then
     SwitchAudioSource -s "$target_audio_device"
   else
-    SwitchAudioSource -s "$default_audio_device"
+    SwitchAudioSource -s "$DEFAULT_AUDIO_DEVICE"
   fi
 
 fi
