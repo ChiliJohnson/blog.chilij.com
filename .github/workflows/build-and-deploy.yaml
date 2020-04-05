@@ -20,8 +20,15 @@ jobs:
         with:
           install_dependencies: true
         env:
-          SITE_URL: ${{ secrets.SITE_URL }}
+          SITE_URL: https://${{ secrets.SITE_DOMAIN }}
           EXTERNAL_HOME_URL: ${{ secrets.EXTERNAL_HOME_URL }}
+
+      - name: Set CNAME
+        env:
+          SITE_DOMAIN: ${{ secrets.SITE_DOMAIN }}
+        run: |
+          sudo chown -R `whoami` dist
+          echo "$SITE_DOMAIN" > dist/CNAME
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v2.10.0

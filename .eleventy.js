@@ -39,7 +39,6 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addCollection("tagList", require("./_11ty/getTagList"));
 
-  eleventyConfig.addPassthroughCopy("CNAME");
   eleventyConfig.addPassthroughCopy("site/images");
   eleventyConfig.addPassthroughCopy({"site/_favicon": "/"});
 
