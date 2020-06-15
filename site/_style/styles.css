@@ -213,3 +213,14 @@ main {
 img + em {
   color: #999999;
 }
+
+.end-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1em 0;
+}
+
+.end-mark > img {
+  max-width: 3em;
+}
