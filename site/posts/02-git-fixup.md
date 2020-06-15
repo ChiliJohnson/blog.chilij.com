@@ -18,7 +18,7 @@ tags:
 layout: layouts/post.njk
 ---
 
-Applying fixups to your last commit in `git` are pretty easy using `git commit --amend`, but applying fixups to older commits can be much more involved.
+Applying fixups to your last commit in `git` is pretty easy using `git commit --amend`, but applying fixups to older commits can be much more involved.
 
 Using `git rebase` in combination with its `--autostash` and `--autosquash` options makes these fixups a lot easier. Combining a rebase with git's message-based revision syntax is a powerful way to effortlessly apply commit fixups.
 
@@ -109,7 +109,7 @@ $ git log --oneline
 
 In this example, a fixup is committed for commit `2222222`, which shows up with `fixup!` in its commit title, and ends up getting reordered and labelled as `fixup` during the rebase.
 
-After the rebase is executed you can see that the commit history has been modified, starting at commit `5555555` (previously `2222222`) because of the fixup.
+After the rebase is executed you can see that the commit history has been modified, starting at commit `5555555` (previously `2222222`) where the fixup was applied.
 
 ## Text-based revision selection with `:/`
 
