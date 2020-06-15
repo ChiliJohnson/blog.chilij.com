@@ -78,7 +78,7 @@ Git's interactive rebase provides an `--autosquash` option which will help us in
 1. It will reorder commits with log messages starting with `fixup!` or `squash!` so that they are applied immediately after the commits with the same title (following those prefixes)
 2. It will change the rebase command to `fixup` or `squash`, respectively
 
-So if we can get a fixup commit titled `"!fixup <title of commit to fix>"`, `git rebase -i --autosquash` will save us from having to perform steps 6 and 7 from the naïve workflow.
+So if we can get a fixup commit titled `"fixup! <title of commit to fix>"`, `git rebase -i --autosquash` will save us from having to perform steps 6 and 7 from the naïve workflow.
 
 How can we get one of these commits? Rather than manually typing out `fixup!` in your fixup commit messages, git provides some help: `git commit --fixup`
 ```shell
