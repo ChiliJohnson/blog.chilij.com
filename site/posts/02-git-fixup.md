@@ -22,6 +22,8 @@ Applying fixups to your last commit in `git` are pretty easy using `git commit -
 
 Using `git rebase` in combination with its `--autostash` and `--autosquash` options makes these fixups a lot easier. Combining a rebase with git's message-based revision syntax is a powerful way to effortlessly apply commit fixups.
 
+> If you want to skip the explanations and get right to a useful shell function, [skip to the last section](#putting-it-all-together)
+
 ## The Naïve Way
 
 Before I knew about `--autostash` and `--autosquash` these are the steps I used to go through to fixup historical commits:
