@@ -97,8 +97,8 @@ $ git log --oneline
 $ git rebase -i --autosquash HEAD~4
 # * Shown in your text editor:
 # pick 1111111 Adds framework boilerplate.
-# fixup 2222222 Updates README.
-# pick 4444444 fixup! Updates README.
+# pick 2222222 Updates README.
+# fixup 4444444 fixup! Updates README.
 # pick 3333333 Adds dev dependencies.
 
 $ git log --oneline
