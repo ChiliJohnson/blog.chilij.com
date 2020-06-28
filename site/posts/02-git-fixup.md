@@ -178,6 +178,8 @@ First it prints out which commits will be affected by this rebase and asks for c
 
 It accepts one argument, the commit message title fragment (regex) to match the commit intended to be fixed.
 
+> Thanks to <a href="https://www.verychill.biz/" target="_blank">Jesse Jenks</a> for workshopping this function and making it even better!
+
 An example usage:
 ```shell
 $ git log --oneline
