@@ -151,9 +151,17 @@ Here we're using many shells' built-in `:` command to do nothing and exit cleanl
 
 Here is a shell function I use (with `zsh`) which combines all of these optimizations into one command which can be used to fixup commits identified by part of their commit message:
 ```shell
-fixup () {
+fixup() {
+  title_match="${@:1}"
+
   echo "\nThis operation will rebase:\n"
-  git --no-pager log --oneline "HEAD^^{/$1}^..HEAD" --reverse
+
+  git --no-pager log --oneline "HEAD^{/$title_match}^..HEAD" --reverse
+
+  if [[ $? -ne 0 ]]; then
+    echo "\nCould not find a commit with title matching: \"$title_match\""
+    return
+  fi
 
   echo
   read -q "REPLY?Are you sure? "
@@ -161,7 +169,7 @@ fixup () {
 
   if [[ $REPLY =~ ^[Yy]$ ]]
   then
-    git commit --fixup ":/$1" && GIT_SEQUENCE_EDITOR=: git rebase --interactive --autostash --autosquash "HEAD^^{/$1}^"
+    git commit --fixup ":/$title_match" && GIT_SEQUENCE_EDITOR=: git rebase --interactive --autostash --autosquash "HEAD^^{/$title_match}^"
   fi
 }
 ```
