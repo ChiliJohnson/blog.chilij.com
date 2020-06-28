@@ -60,9 +60,9 @@
 
     {% set css %}
       {% include "site/_style/prism-ghcolors.css" %}
-      {% include "site/_style/styles.css" %}
+      {% include "site/_style/styles.scss" %}
     {% endset %}
-    <style>{{ css | cssmin | safe }}</style>
+    <style>{{ css | sass | cssmin | safe }}</style>
 
   </head>
   <body {% if templateClass %} class="{{ templateClass }}"{% endif %}>

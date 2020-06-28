@@ -8,6 +8,7 @@ const markdownItAnchor = require("markdown-it-anchor");
 const markdownItFootnote = require("markdown-it-footnote");
 const HtmlMinifier = require("html-minifier");
 const CleanCSS = require("clean-css");
+const Sass = require("sass");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
@@ -86,6 +87,10 @@ module.exports = function (eleventyConfig) {
 
     return content;
   });
+
+  eleventyConfig.addFilter("sass", function (code) {
+    return Sass.renderSync({ data: code }).css.toString();
+  })
 
   eleventyConfig.addFilter("cssmin", function (code) {
     return new CleanCSS({}).minify(code).styles;
