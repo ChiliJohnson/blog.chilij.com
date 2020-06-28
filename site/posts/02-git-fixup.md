@@ -202,16 +202,16 @@ $ fixup outro
 # 3333333 (HEAD) Adds dev dependencies.
 # 
 # Are you sure? y
-# [master 5555555] fixup! Updates the readme with an outro.
+# [master 4444444] fixup! Updates the readme with an outro.
 #  1 file changed, 1 insertion(+), 1 deletion(-)
 # Created autostash: 2f16c33
-# HEAD is now at 5555555 fixup! Updates the readme with an outro.
+# HEAD is now at 4444444 fixup! Updates the readme with an outro.
 # Applied autostash.
 # Successfully rebased and updated refs/heads/master.
 
 $ git log --oneline
-# 5555555 (HEAD) Adds dev dependencies.
-# 4444444 Updates the readme with an outro.
+# 6666666 (HEAD) Adds dev dependencies.
+# 5555555 Updates the readme with an outro.
 # 1111111 Adds framework boilerplate.
 
 $ git status
