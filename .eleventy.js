@@ -5,11 +5,11 @@ const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginNavigation = require("@11ty/eleventy-navigation");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
-const markdownItFootnote = require('markdown-it-footnote');
+const markdownItFootnote = require("markdown-it-footnote");
 const HtmlMinifier = require("html-minifier");
 const CleanCSS = require("clean-css");
 
-module.exports = function(eleventyConfig) {
+module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
   eleventyConfig.addPlugin(pluginNavigation);
@@ -18,14 +18,14 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addLayoutAlias("post", "layouts/post.njk");
 
-  eleventyConfig.addFilter("readableDate", dateObj => {
+  eleventyConfig.addFilter("readableDate", (dateObj) => {
     return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat(
       "dd LLL yyyy"
     );
   });
 
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
-  eleventyConfig.addFilter("htmlDateString", dateObj => {
+  eleventyConfig.addFilter("htmlDateString", (dateObj) => {
     return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("yyyy-LL-dd");
   });
 
@@ -41,7 +41,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addCollection("tagList", require("./_11ty/getTagList"));
 
   eleventyConfig.addPassthroughCopy("site/images");
-  eleventyConfig.addPassthroughCopy({"site/_favicon": "/"});
+  eleventyConfig.addPassthroughCopy({ "site/_favicon": "/" });
 
   /* Markdown Overrides */
   let markdownLibrary = markdownIt({
@@ -60,7 +60,7 @@ module.exports = function(eleventyConfig) {
   // Browsersync Overrides
   eleventyConfig.setBrowserSyncConfig({
     callbacks: {
-      ready: function(err, browserSync) {
+      ready: function (err, browserSync) {
         const content_404 = fs.readFileSync("dist/404.html");
 
         browserSync.addMiddleware("*", (req, res) => {
@@ -68,18 +68,18 @@ module.exports = function(eleventyConfig) {
           res.write(content_404);
           res.end();
         });
-      }
+      },
     },
     ui: false,
-    ghostMode: false
+    ghostMode: false,
   });
 
-  eleventyConfig.addTransform("html-minifier", function(content, outputPath) {
+  eleventyConfig.addTransform("html-minifier", function (content, outputPath) {
     if (outputPath && outputPath.endsWith(".html")) {
       let minified = HtmlMinifier.minify(content, {
         useShortDoctype: true,
         removeComments: true,
-        collapseWhitespace: true
+        collapseWhitespace: true,
       });
       return minified;
     }
@@ -87,7 +87,7 @@ module.exports = function(eleventyConfig) {
     return content;
   });
 
-  eleventyConfig.addFilter("cssmin", function(code) {
+  eleventyConfig.addFilter("cssmin", function (code) {
     return new CleanCSS({}).minify(code).styles;
   });
 
@@ -113,7 +113,7 @@ module.exports = function(eleventyConfig) {
       input: "site",
       includes: "_includes",
       data: "_data",
-      output: "dist"
-    }
+      output: "dist",
+    },
   };
 };
