@@ -115,7 +115,7 @@ After the rebase is executed you can see that the commit history has been modifi
 
 In the previous example, in order to create the fixup commit with `git commit --fixup 2222222`, we used the commit hash as the identifier (which we found through `git log`), but there's a more intuitive way we can specify which commit we want to fixup, using `:/`.
 
-Using `:/` as a revision identifier tells git to find the most-recent commit which matches the text (really a regular expression) following those tokens. For example:
+Using `:/` as a revision identifier tells git to find the most-recent commit which matches the text (really a regular expression) following those tokens.[^gitrevisions] For example:
 ```shell
 $ git log --oneline
 # 3333333 (HEAD) Adds dev dependencies.
@@ -137,7 +137,7 @@ Now we can identify the commit to fix using its commit message, instead of havin
 
 Now we have most of the parts we need for an optimized fixup workflow, but there's still the problem of `--autosquash` and `--autostash` only working with interactive rebases. Those two options already do everything we need to do during the rebase so opening up a text editor isn't useful anymore.
 
-To disable opening a text editor during the interactive rebase, we can use the `GIT_SEQUENCE_EDITOR` environment variable to override the editor which git tries to open.
+To disable opening a text editor during the interactive rebase, we can use the `GIT_SEQUENCE_EDITOR` environment variable to override the editor which git tries to open.[^sequence-editor]
 
 Overriding it to a program/command which does nothing and exits cleanly will turn an interactive rebase into a non-interactive rebase, while retaining interactive-only features like the two options we're interested in.
 ```shell
@@ -222,3 +222,7 @@ $ git status
 By making use of `--autostash`, `--autosquash`, `:/`, and `GIT_SEQUENCE_EDITOR`, we've been able to distill that 9-step fixup workflow—which demanded multiple interactive steps and a copy-paste job—into a single, intuitive command which allows you to apply fixups for selective files while maintaining a dirty working tree.
 
 I use this all the time in my daily workflow!
+
+#### Footnotes
+[^gitrevisions]: [Git Revisions Syntax](https://git-scm.com/docs/gitrevisions#Documentation/gitrevisions.txt-emlttextgtemegemfixnastybugem)
+[^sequence-editor]: [Stack Overflow: Git interactive rebase without opening the editor](https://stackoverflow.com/questions/29094595/git-interactive-rebase-without-opening-the-editor#answer-29094904)

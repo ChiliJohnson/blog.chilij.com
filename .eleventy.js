@@ -5,6 +5,7 @@ const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginNavigation = require("@11ty/eleventy-navigation");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
+const markdownItFootnote = require('markdown-it-footnote');
 const HtmlMinifier = require("html-minifier");
 const CleanCSS = require("clean-css");
 
@@ -46,12 +47,14 @@ module.exports = function(eleventyConfig) {
   let markdownLibrary = markdownIt({
     html: true,
     breaks: true,
-    linkify: true
-  }).use(markdownItAnchor, {
-    permalink: true,
-    permalinkClass: "direct-link",
-    permalinkSymbol: "🔗"
-  });
+    linkify: true,
+  })
+    .use(markdownItAnchor, {
+      permalink: true,
+      permalinkClass: "direct-link",
+      permalinkSymbol: "🔗",
+    })
+    .use(require("markdown-it-footnote"));
   eleventyConfig.setLibrary("md", markdownLibrary);
 
   // Browsersync Overrides
